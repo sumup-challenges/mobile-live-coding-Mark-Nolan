@@ -21,6 +21,12 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = items.size
 
+    fun updateItems(newItems: List<Item>) {
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()  // Notify the adapter that the data has changed
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val itemName = itemView.findViewById<TextView>(R.id.tv_item_name)
         private val itemPrice = itemView.findViewById<TextView>(R.id.tv_item_price)
